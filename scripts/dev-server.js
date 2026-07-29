@@ -10,6 +10,10 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = join(dirname(__filename), '..');
 const PORT = process.env.PORT || 3000;
+// Bind all interfaces so reverse proxies (Traefik/Dokploy) can reach the
+// container. Node's default listen host can resolve to IPv6-only in some
+// containers, which the proxy connects past over IPv4. Override with HOST.
+const HOST = process.env.HOST || '0.0.0.0';
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -142,11 +146,12 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, HOST, () => {
   console.log(`
 \x1b[36m  Claudeck Marketplace — Dev Server\x1b[0m
 
-  \x1b[1m\x1b[32m➜\x1b[0m  \x1b[1mReady:\x1b[0m   http://localhost:${PORT}
+  \x1b[1m\x1b[32m➜\x1b[0m  \x1b[1mListening:\x1b[0m ${HOST}:${PORT}
+  \x1b[2m➜  Local:\x1b[0m   http://localhost:${PORT}
   \x1b[2m➜  Preview:\x1b[0m http://localhost:${PORT}/preview?plugin=tic-tac-toe
   \x1b[2m➜  API:\x1b[0m    http://localhost:${PORT}/api/registry
 `);
