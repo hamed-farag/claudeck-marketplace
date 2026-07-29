@@ -11,6 +11,10 @@ jobs:
   validate:
     name: Validate Plugin Submission
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
 
     steps:
       - name: Checkout PR
