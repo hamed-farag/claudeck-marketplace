@@ -47,6 +47,18 @@
       "authorGithub": "hamedafarag",
       "icon": "🧩",
       "keywords": ["game", "puzzle"]
+    },
+    {
+      "id": "linear",
+      "source": "./plugins/linear",
+      "version": "1.0.0",
+      "name": "Linear",
+      "description": "Linear issue tracking with settings and team management",
+      "author": "claudeck",
+      "authorGithub": "hamedafarag",
+      "icon": "📋",
+      "hasServer": true,
+      "keywords": ["productivity", "project-management", "issue-tracking", "linear"]
     }
   ]
 }

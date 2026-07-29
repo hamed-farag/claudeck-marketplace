@@ -1,0 +1,12 @@
+{
+  "id": "linear",
+  "name": "Linear",
+  "version": "1.0.0",
+  "description": "Linear issue tracking with settings and team management",
+  "author": "claudeck",
+  "authorGithub": "hamedafarag",
+  "icon": "\ud83d\udccb",
+  "hasServer": true,
+  "minClaudeckVersion": "1.4.0",
+  "keywords": ["productivity", "project-management", "issue-tracking", "linear"]
+}
