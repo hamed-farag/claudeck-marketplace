@@ -1,0 +1,16 @@
+# Compose file for deploying the Claudeck Marketplace showcase on Dokploy.
+#
+# No host `ports:` mapping on purpose — Dokploy's Traefik reaches the
+# container on the internal network via the exposed port, so this never
+# collides with Dokploy's own port 3000. Set the domain + container port
+# (3010) in the Dokploy service UI.
+services:
+  showcase:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3010
+    expose:
+      - "3010"
+    restart: unless-stopped

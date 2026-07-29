@@ -1,0 +1,13 @@
+.git
+.github
+node_modules
+api/plugins
+*.log
+.env
+.env.local
+.DS_Store
+.vscode
+.idea
+Dockerfile
+.dockerignore
+docker-compose.yml
